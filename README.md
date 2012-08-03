@@ -1,6 +1,6 @@
 # Purpose
 
-This is a showcase project for [rabbiteasy](https://github.com/zanox/rabbiteasy).
+This is a showcase project for [RabbitEasy](https://github.com/zanox/rabbiteasy).
 
 # Prerequisites
 
