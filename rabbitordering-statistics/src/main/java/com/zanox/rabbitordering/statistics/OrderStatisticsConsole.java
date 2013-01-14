@@ -1,5 +1,6 @@
 package com.zanox.rabbitordering.statistics;
 
+import com.zanox.rabbiteasy.cdi.EventBinder;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 
@@ -15,12 +16,18 @@ public class OrderStatisticsConsole {
 
     static void initialize() throws IOException {
         WeldContainer container = new Weld().initialize();
-        container.instance().select(OrderStatisticsEventBinder.class).get().initialize();
+        EventBinder eventBinder = container.instance().select(OrderStatisticsEventBinder.class).get();
+        eventBinder.initialize();
         orderStatistics = container.instance().select(OrderStatistics.class).get();
     }
 
     static void run() {
         Scanner in = new Scanner(System.in);
+        System.out.println("-------------------------------------------");
+        System.out.println("Commands");
+        System.out.println("-------------------------------------------");
+        System.out.println("print (prints the statistics)");
+        System.out.println("exit (quits this application)");
         while (true) {
             try {
                 String command = in.next();

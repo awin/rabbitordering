@@ -57,14 +57,14 @@ public class OrderProcessConsole {
         System.out.println("Test Articles");
         System.out.println("-------------------------------------------");
         for (Article article : persistence.getArticles()) {
-            System.out.println(article.id + ": " + article.name);
+            System.out.println(article.id + ": " + article.name + ", $" + article.price);
         }
         System.out.println("-------------------------------------------");
         System.out.println("Commands");
         System.out.println("-------------------------------------------");
-        System.out.println("create <username> <articleId> <amount>");
-        System.out.println("pay <orderId> <payment>");
-        System.out.println("deliver <orderId>");
+        System.out.println("create <username> <articleId> <amount> (creates an order)");
+        System.out.println("pay <orderId> <payment> (pays an order)");
+        System.out.println("deliver <orderId> (delivers an order)");
         System.out.println("-------------------------------------------");
 
         while (true) {

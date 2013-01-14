@@ -17,15 +17,6 @@ public class OrderProcess {
     private ShopPersistence persistence;
 
     @Inject
-    private OrderCreatedEvent orderCreatedEvent;
-
-    @Inject
-    private OrderPayedEvent orderPayedEvent;
-
-    @Inject
-    private OrderDeliveredEvent orderDeliveredEvent;
-
-    @Inject
     private Event<OrderCreatedEvent> orderCreatedEventControl;
 
     @Inject
@@ -39,6 +30,7 @@ public class OrderProcess {
         Customer customer = persistence.getCustomer(username);
         Order order = new Order(customer, article, amount);
         persistence.createOrder(order);
+        OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent();
         orderCreatedEvent.setId(order.id);
         orderCreatedEventControl.fire(orderCreatedEvent);
         return order;
@@ -49,6 +41,7 @@ public class OrderProcess {
         double expectedPayment = order.article.price * order.amount;
         if (payment >= expectedPayment) {
             order.state = Order.State.PAYED;
+            OrderPayedEvent orderPayedEvent = new OrderPayedEvent();
             orderPayedEvent.setId(order.id);
             orderPayedEventControl.fire(orderPayedEvent);
             return true;
@@ -60,6 +53,7 @@ public class OrderProcess {
         Order order = persistence.getOrder(orderId);
         order.deliveryDate = new Date();
         order.state = Order.State.DELIVERED;
+        OrderDeliveredEvent orderDeliveredEvent = new OrderDeliveredEvent();
         orderDeliveredEvent.setId(order.id);
         orderDeliveredEventControl.fire(orderDeliveredEvent);
     }
