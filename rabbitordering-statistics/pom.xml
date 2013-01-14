@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <artifactId>rabbiteasy-cdi</artifactId>
-            <groupId>com.zanox.rabbiteasy</groupId>
+            <groupId>com.zanox.lib.rabbiteasy</groupId>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>

@@ -17,8 +17,8 @@
             <groupId>com.zanox.rabbitordering</groupId>
         </dependency>
         <dependency>
+            <groupId>com.zanox.lib.rabbiteasy</groupId>
             <artifactId>rabbiteasy-cdi</artifactId>
-            <groupId>com.zanox.rabbiteasy</groupId>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>

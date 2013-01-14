@@ -12,18 +12,17 @@
     <artifactId>rabbitordering-core</artifactId>
     <dependencies>
         <dependency>
-            <artifactId>rabbiteasy-cdi</artifactId>
-            <groupId>com.zanox.rabbiteasy</groupId>
-        </dependency>
-        <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <artifactId>rabbiteasy-cdi</artifactId>
+            <groupId>com.zanox.lib.rabbiteasy</groupId>
+        </dependency>
+        <dependency>
             <artifactId>rabbiteasy-testing</artifactId>
-            <groupId>com.zanox.rabbiteasy</groupId>
-            <version>2.8.2.2-SNAPSHOT</version>
+            <groupId>com.zanox.lib.rabbiteasy</groupId>
         </dependency>
     </dependencies>
 
